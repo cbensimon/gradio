@@ -80,7 +80,7 @@ class TestQueueMethods:
 
     @pytest.mark.asyncio
     async def test_add_to_queue_with_max_size(self, queue: Queue, mock_event: Event):
-        queue.max_size = 1
+        queue.max_size = 0
         queue.push(mock_event)
         assert len(queue.event_queue) == 1
         queue.push(mock_event)
