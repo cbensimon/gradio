@@ -223,7 +223,7 @@ class Queue:
             rank of submitted Event
         """
         queue_len = len(self.event_queue)
-        if self.max_size is not None and queue_len >= self.max_size:
+        if self.max_size is not None and queue_len >= self.max_size + self.active_jobs.count(None):
             return None
         self.event_queue.append(event)
         return queue_len
